@@ -1,9 +1,12 @@
 import fs from 'fs';
 import modulePath from 'path';
 import _ from 'lodash';
+import yaml from 'js-yaml';
 
 const parsers = {
   '.json': JSON.parse,
+  '.yaml': yaml.safeLoad,
+  '.yml': yaml.safeLoad,
 };
 
 const actionNode = [
