@@ -20,8 +20,8 @@ describe('compare plane formats', () => {
     expect(genDiff(yaml1, yaml2)).toBe(result)
   });
 
-  // test('diff 2 plane ini files', () => {
-  //   expect(genDiff(ini1, ini2)).toBe(result)
-  // });
+  test('diff 2 plane ini files', () => {
+    expect(genDiff(ini1, ini2)).toBe(result)
+  });
 })
 
