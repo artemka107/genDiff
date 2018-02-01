@@ -9,6 +9,7 @@
   "scripts": {
     "eslint": "eslint src/*.js",
     "test": "jest",
+    "devTest": "jest --watch",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublish": "npm run build"
