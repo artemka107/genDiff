@@ -7,7 +7,7 @@
     "gendiff": "dist/bin/gendiff.js"
   },
   "scripts": {
-    "eslint": "eslint src/*.js",
+    "eslint": "eslint",
     "test": "jest",
     "devTest": "jest --watch",
     "babel-node": "babel-node",

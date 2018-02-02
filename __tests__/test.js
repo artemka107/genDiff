@@ -1,11 +1,9 @@
-import genDiff from '../src';
 import fs from 'fs';
+import genDiff from '../src';
 
-const fixturesDir = '__tests__/__fixtures__/'
+const fixturesDir = '__tests__/__fixtures__/';
 
-const getResult = () => {
-  return fs.readFileSync(`${fixturesDir}results/tree.txt`, 'utf8');
-};
+const getResult = type => fs.readFileSync(`${fixturesDir}results/${type}.txt`, 'utf8');
 
 const json1 = `${fixturesDir}json/before.json`;
 const json2 = `${fixturesDir}json/after.json`;
@@ -16,17 +14,33 @@ const yaml2 = `${fixturesDir}yaml/after.yaml`;
 const ini1 = `${fixturesDir}ini/before.ini`;
 const ini2 = `${fixturesDir}ini/after.ini`;
 
-describe('compare plane formats', () => {
-  test('diff 2 plane json files', () => {
-    expect(genDiff(json1, json2)).toBe(getResult())
+const tree = 'tree';
+const plane = 'plane';
+
+describe('compare files with tree formats', () => {
+  test('diff 2 json files', () => {
+    expect(genDiff(json1, json2, tree)).toBe(getResult(tree));
   });
 
-  test('diff 2 plane yaml files', () => {
-    expect(genDiff(yaml1, yaml2)).toBe(getResult())
+  test('diff 2 yaml files', () => {
+    expect(genDiff(yaml1, yaml2, tree)).toBe(getResult(tree));
   });
 
-  test('diff 2 plane ini files', () => {
-    expect(genDiff(ini1, ini2)).toBe(getResult())
+  test('diff 2 ini files', () => {
+    expect(genDiff(ini1, ini2, tree)).toBe(getResult(tree));
   });
-})
+});
 
+describe('compare files with plane formats', () => {
+  test('diff 2 json files', () => {
+    expect(genDiff(json1, json2, plane)).toBe(getResult(plane));
+  });
+
+  test('diff 2 yaml files', () => {
+    expect(genDiff(yaml1, yaml2, plane)).toBe(getResult(plane));
+  });
+
+  test('diff 2 ini files', () => {
+    expect(genDiff(ini1, ini2, plane)).toBe(getResult(plane));
+  });
+});
