@@ -1,9 +1,11 @@
-import treeRender from './tree';
-import planeRender from './plane';
+import treeRender from './treeRender';
+import planeRender from './planeRender';
+import jsonRender from './jsonRender';
 
 const renderFormats = {
   tree: treeRender,
   plane: planeRender,
+  json: jsonRender,
 };
 
 const getRender = format => renderFormats[format];

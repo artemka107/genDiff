@@ -61,5 +61,4 @@ const genDiff = (path1, path2, renderFormat) => {
   return result;
 };
 
-
 export default genDiff;

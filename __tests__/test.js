@@ -16,6 +16,7 @@ const ini2 = `${fixturesDir}ini/after.ini`;
 
 const tree = 'tree';
 const plane = 'plane';
+const json = 'json';
 
 describe('compare files with tree formats', () => {
   test('diff 2 json files', () => {
@@ -42,5 +43,19 @@ describe('compare files with plane formats', () => {
 
   test('diff 2 ini files', () => {
     expect(genDiff(ini1, ini2, plane)).toBe(getResult(plane));
+  });
+});
+
+describe('compare files with json formats', () => {
+  test('diff 2 json files', () => {
+    expect(genDiff(json1, json2, json)).toBe(getResult(json).trim());
+  });
+
+  test('diff 2 yaml files', () => {
+    expect(genDiff(yaml1, yaml2, json)).toBe(getResult(json).trim());
+  });
+
+  test('diff 2 ini files', () => {
+    expect(genDiff(ini1, ini2, json)).toBe(getResult(json).trim());
   });
 });
