@@ -7,7 +7,7 @@ publish:
 lint:
 	npm run eslint .
 run:
-	npm run babel-node -- src/bin/gendiff.js -f json
+	npm run babel-node -- src/bin/gendiff.js -f tree __tests__/__fixtures__/json/before.json package.json
 test:
 	npm run test
 devTest:
